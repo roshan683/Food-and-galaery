@@ -1,0 +1,471 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellota+Text:wght@300;400;700&family=Monoton&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none; /* It will get rid of the default bullets from the list elements.*/
+  outline: none;
+  font-family: "Bellon Text", "cursive";
+  font-weight: 400;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  overflow-x: hidden; /* it will hidden the scroll bar  down*/
+}
+/*Right now, one REM is equal to 16 pixels because by default, the font size of the HTML element equals
+16 pixels.
+I'm going to convert one REM into ten pixels because I think it would be more convenient and simple
+to use.
+So in order to do that, we have to decrease the font size of the HTML and make it 62.5%.*/
+.section-1 {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  position: relative;
+}
+
+.floating-bg {
+  width: 150vw;
+  height: 150vw;
+  background-color: rgba(50, 231, 255, 0.8);
+  position: absolute;
+  top: -125vw;
+  left: calc(50% - 75vw);
+  border-radius: 45%;
+  animation: rotate 30s infinite;
+  /*At first we need to define the name of the animation, which is rotate.
+Then we have to define the duration.
+It's going to be 30s.
+And also we need to make the animation infinite.
+So let's insert here infinite.*/
+  animation: rotate 30s infinite;
+}
+.floating-bg::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 231, 255, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 40%;
+  animation: rotate 30s infinite;
+}
+/*So we are going to define two different steps the starting point and the ending point.
+I mean 0% and 100%.
+And we need to rotate the element by 360 degrees.
+So at 0%, I mean, at the starting point, we need transform.*/
+/*So during the animation, the element will rotate once by 360 degrees.*/
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.navbar {
+  position: relative;
+  z-index: 20; /* to make visible under floating blue*/
+  top: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navbar-link {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  color: #fff;
+  width: 1.5rem;
+  word-wrap: break-word;
+  text-align: center;
+  transition: all 0.25s;
+}
+.navbar-link:hover{
+    width:15rem;
+    background-color: rgba(255,255,255,0.2);
+    transition: all 2.5s;
+}
+/*We need two different transitions one on hover and the second one for the link itself.*/
+.section-1-heading{
+    font-size:6rem;
+    font-family:"Monoton",cursive;
+    position:absolute;
+    top:18vw;
+    left:48%;
+    transform:translateX(-50%);
+    text-shadow:0.3rem 0.3rem 0.3rem #888;
+    color:#fff;
+    background-color: #fff;
+    width:60rem;
+    text-align:center;
+    padding:-1.2rem 1.6rem;
+    border-radius:0.8rem;
+    opacity:0.9;
+}
+.logo{
+    position:absolute;
+    top:70%;
+    left:50%;
+    transform:translate(-50%);
+}
+.logo i {
+    font-size: 15rem;
+    color: rgba(50, 231, 255, 0.8);
+    text-shadow: 0.1rem 0.1rem 0.2rem #ddd, -0.1rem -0.1rem 0.2rem #ddd;
+  }
+
+  /*Section-2*/
+  .section-2{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+  }
+  .customer-img{
+    width:10rem;
+    height:10rem;
+    object-fit:cover;
+    /*Let's create some space at the top and bottom of the image and also make it rounded.*/
+    margin:2rem 0;
+    border-radius:50%;
+  }
+  .customer-name{
+    font-size:2rem;
+    font-weight:700;
+  }
+
+  .section-heading{
+    font-size:10rem;
+    font-weight:bold;
+    text-transform:uppercase;
+    color:#999;
+    text-align:center;
+    opacity:0.1;
+    text-shadow:2rem 2rem 4rem #aaa;
+  }
+  .customer-wrapers{
+    display:flex;           /*Making cardsin horizontoal*/
+    justify-content:space-evenly;
+    align-items:center;
+    height:78%;
+  }
+  .customers{
+    width:35rem;
+    height:50rem;
+    height:80%;
+    background-color: #eee;
+    display:flex;
+   flex-direction: column;
+    align-items:center;
+   border-radius:0.5rem;
+   padding:2rem;
+   box-shadow:1rem 1rem 2rem #ddd, -1rem -1rem 2rem #eee;
+   transition: box-shadow 0.5s;
+  }
+  /*It will select the first card and then in order to place it a little bit down, we need a line self
+  with the value flex end.
+  It will place the card at the bottom of the container.
+  So right now, nothing is changed because we need to define the height of the wrapper.
+  So let's assign to it height with value.
+  70%.*/
+  
+  .customers:first-child{
+    align-self:flex-end;
+   /* top: 3rem;*/
+  }
+  .customers:last-child{
+    align-self:flex-start;
+   /* bottom: 5rem;*/
+  }
+  .fa-quote-left{
+    font-size:4rem;
+    color:#f08e0f;
+  }
+
+  .customer-text{
+    font-size:1.8rem;
+    margin:2.5rem 0;
+    text-align:justify;
+    /*-family: "Monoton",cursive;*/
+  }
+  .customers-text::first-letter{
+    margin-left:1rem;
+  }
+  .customer-rating{
+    font-size:2rem;
+    color:#f08e0f;
+  }
+  /*hover effect*/
+  .customers:hover{
+    box-shadow:2rem 2rem 3rem #ddd, -2rem -2rem 3rem #eee;
+  }
+
+  /* section-3*/
+  .section-3{
+    width:100%;
+    height:100vh;   /*100%*/
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    padding:5rem 0;
+  }
+  .team-wrappers {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%; 
+  }
+ .team{
+  width:35rem;
+    height:50rem;
+  background-color: #fffeee;
+    position:relative;
+    padding: 1rem 1rem 2rem 1rem;
+    box-shadow: 1rem 1rem 2rem #ddd, -1rem -1rem 2rem #eee;
+    opacity: 0.7;
+    transition: opacity 0.5s;
+  /*  height:25.5%;                                                                                        /*increase the height of cards
+    width: 25.5%;*/
+ }
+ .team:hover {
+  opacity: 1;
+}
+.section-heading{
+    padding-bottom: 11rem;
+}
+ .team-member-img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.team-member-name {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #796717;
+  margin-top: 2rem;
+}
+/*position of ther member*/
+.team-member-name span {
+  font-size: 1.7rem;
+}
+.team-member-skills {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 2rem 0;
+}
+.team-member-skills li {
+  font-size: 1.5rem;
+  color: #505050;
+}
+/*Button*/
+.projects-btn {
+  background-color: #fab34a;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+}
+.story{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(253, 69, 69, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    transform:scale(0);
+    transition: all 0.5s;
+    transform-origin: top right;  /*the red color should comes out from top right corner*/
+    border-radius: 50rem 0 50rem 50rem; /*top left corner top right corner botoom right bottom*/
+}
+.story-btn {
+  width: 4rem;
+  height: 4rem;
+  background-color: #222;
+  position: absolute;
+  top: -1rem;  /*make circle to go top and bottom*/
+  right: -1rem;  /*make cicrcle right and left*/
+  border-radius:5rem;
+  display:flex;
+  align-items: center;
+  padding: 0.5rem;  /*increase the size of circle it menas padding from inside*/
+  cursor: pointer;
+  z-index:50;  /*In order to see the the button*/
+  transition: transform 0.5s;
+ 
+}
+.story-btn-line {
+  width: 100%;
+  height: 0.1rem;
+  background-color: #fff;
+}
+.story-heading {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.story-paragraph {
+  font-size: 1.8rem;
+  color: #eee;
+  text-align: justify;
+  letter-spacing: 0.1rem;
+  text-indent: 2rem;
+}
+.change.story-btn {
+  transform: rotate(45deg);  /*when class change it rotate 45 degree*/
+}
+.change.story {
+  transform: scale(1);    /*mera pragraph dikhega*/
+  border-radius: 0;
+}
+
+.team:first-child{
+  align-self:flex-end;
+ /* top: 3rem;*/
+}
+.team:last-child{
+  align-self:flex-start;
+ /* bottom: 5rem;*/
+}
+.container{
+  width:100%;
+  overflow-x: hidden;
+}
+/*section 4*/
+ .section-4{
+  width:100%;
+  height:130vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+ }
+ .section-heading1{
+  top: 3rem;
+  font-size:10rem;
+  font-weight:bold;
+  text-transform:uppercase;
+  color:#999;
+  text-align:center;
+  opacity:0.1;
+  text-shadow:2rem 2rem 4rem #aaa;
+  position: relative;
+ }
+
+ .form-container {
+  width: 90%;
+  height: 50%;
+  background-color: #e5e9ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0.3rem 0.3rem 0.4rem #ccc, -0.1rem -0.1rem 0.4rem #ccc;
+  border-radius: 0.5rem;
+  perspective: 100rem;
+ /* First of all, in order to create a 3D environment, we need to use one of the properties called perspective.*/
+ /*In general, a prospective property defines how far the element is away from the user.*/
+}
+.form-img {
+  width: 50rem;  /*increase the size of blue box*/
+  background-color: rgba(50, 231, 255, 0.8);
+  padding: 5rem; /*increase the pading inside the image */
+  opacity: 0.8;
+  box-shadow: -3rem 3rem 4rem #aaa;
+  border-radius: 0.5rem;
+  transform: rotateY(20deg);
+  transition: all 0.5s;
+}
+.contact-form input,
+.contact-form textarea {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: inset 0.1rem 0.1rem 0.2rem #ddd, inset -0.1rem -0.1rem 0.2rem #ddd;  /*shadow from inner side*/
+}
+.contact-form {
+  width: 52rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 3rem 3rem 4rem #aaa;
+  transform: rotateY(-20deg);
+  transition: all 0.5s;
+}
+
+.contact-form textarea {
+  max-height: 15rem;
+  min-height: 10rem;
+  max-width: 100%;
+  min-width: 70%;
+}
+.contact-form input[type="submit"] {
+  background-color: rgba(50, 231, 255, 0.8);
+  color: #fff;
+  font-weight: bolder;
+  letter-spacing: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.contact-form input[type="submit"]:hover {
+  background-color: #32e7ff;
+}
+/* hober*/
+.form-img:hover {
+  transform: translateY(-2rem) rotateY(20deg);
+  box-shadow: -5rem 5rem 7rem #aaa;
+}
+.contact-form:hover {
+  transform: translateY(-2rem) rotateY(-20deg);
+  box-shadow: 5rem 5rem 7rem #aaa;
+}
+/*copy right*/
+.copyright {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  color: #444;
+  margin-top: 5rem;
+}
+
+/*button for up*/
+/*In order to do that, we have to connect nav links to the sections using H reference and ID attributes.*/
+.scroll-up-btn {
+  width: 5rem;
+  height: 5rem;
+  background-color: rgba(50, 231, 255, 0.8);
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  color: solid#fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s;
+}
+.scroll-up-btn:hover {
+  background-color: #32e7ff;
+}
+
+
+
+
+  
